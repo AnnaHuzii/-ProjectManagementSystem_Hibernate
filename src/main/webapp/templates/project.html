@@ -1,0 +1,93 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Table :  Projects</h1>
+<h2>You can get such following information from this table</h2>
+<div>
+    <h3>1. List of  all projects </h3>
+    <form name="listAllProjects" action="/hw_servlets/projects/all_projects" method="POST">
+        <input type="submit" name="listAllProjects_submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>2. All info about project </h3>
+    <form name="project" action="/hw_servlets/project/project" method="POST">
+        Project Name: <input type="text" name="projectName"><br>
+        <input type="submit" name="project_submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>3. List developers of certain project </h3>
+    <form name="listDevelopersOfProject" action="/hw_servlets/projects/developers" method="POST">
+        Project Name: <input type="text" name="projectName"><br>
+        <input type="submit" name="listDevelopersOfProject_submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>4. Cost of certain project </h3>
+    <form name="costOfProject" action="/hw_servlets/projects/cost" method="POST">
+        Project Name: <input type="text" name="projectName"><br>
+        <input type="submit" name="costOfProject_submit" value="Get info">
+    </form>
+</div>
+
+<div>
+    <h3>5. List of  all projects  in format :  "date-name-quantity developers" </h3>
+    <form name="listAllProjectsInSpecialFormat" action="/hw_servlets/projects/all_projects_in_special_format" method="POST" >
+        <input type="submit" name="listAllProjectsInSpecialFormat_submit" value="Get info">
+    </form>
+</div>
+
+
+<div>
+    <h3>6. Add project </h3>
+    <form name="addProject" action="/hw_servlets/project/add" method="POST">
+        Project Name: <input type="text" name="projectName"><br>
+        Company Name: <input type="text" name="companyName"><br>
+        Customer Name: <input type="text" name="customerName"><br>
+        Cost: <input type="text" name="projectCost"><br>
+        Start Date : <input type="date" name="startDate"><br>
+        <input type="submit" name="addProject_submit" value="Add">
+    </form>
+</div>
+
+<div>
+    <h3>7. Update project </h3>
+    <form name="updateProject" action="/hw_servlets/project/update" method="POST" >
+        Project Name: <input type="text" name="projectName"><br>
+        Company Name: <input type="text" name="companyName"><br>
+        Customer Name: <input type="text" name="customerName"><br>
+        Cost: <input type="text" name="projectCost"><br>
+        Start Date : <input type="date" name="startDate"><br>
+        <input type="submit" name="updateProject_submit" value="Update">
+    </form>
+</div>
+
+<div>
+    <h3>8. Delete project </h3>
+    <form name="deleteProject" action="/hw_servlets/project/delete" method="POST">
+        Project Name: <input type="text" name="projectName"><br>
+        <input type="submit" name="deleteProject_submit" value="Get info">
+    </form>
+</div>
+<div>
+    <h4> </h4>
+    <form action="/hw_servlets" method="GET">
+        <input type="submit" value="To the main menu">
+    </form>
+</div>
+</body>
+</html>
