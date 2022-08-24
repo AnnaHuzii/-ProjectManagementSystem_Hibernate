@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delete companies</title>
+    <style>
+    .submit1 {
+    background-color: #008CBA;
+    padding: 14px 40px;
+    color: white;
+    font-size: 15pt;
+    border-radius: 12px;
+    }
+    .form-retreat2 {
+     margin-bottom: 1rem;
+    }
+     .inscriptionTrue {
+    color: green;
+    font-size: 25pt;
+   }
+   .inscriptionFalse {
+    color: red;
+    font-size: 25pt;
+   }
+
+    </style>
+</head>
+<body>
+<div>
+    <form action=/companies method=GET>
+        <div class="form-retreat2">
+            <h1 th:text="'Company with ID: ' + ${companyID} + ' deleted'"></h1>
+            <!--#if expr=(!str = $trueDelete) -->
+            <b1 th:text="${trueDelete}" class="inscriptionTrue"></b1>
+            <!--endif-->
+            <!--#if expr=(!str = $falseDelete) -->
+            <b1 th:text="${falseDelete}" class="inscriptionFalse"></b1>
+            <!--endif-->
+        </div>
+        <div>
+            <input class="submit1" type=submit value="Companies menu">
+        </div>
+    </form>
+</div>
+</body>
+</html>

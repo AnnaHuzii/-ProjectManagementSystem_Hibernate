@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update companies</title>
+    <style>
+    .submit1 {
+    background-color: #008CBA;
+    padding: 14px 40px;
+    color: white;
+    font-size: 15pt;
+    border-radius: 12px;
+    }
+    .form-retreat2 {
+     margin-bottom: 1rem;
+    }
+     .inscriptionTrue {
+    color: green;
+    font-size: 15pt;
+   }
+   .inscriptionFalse {
+    color: red;
+    font-size: 15pt;
+   }
+
+
+    </style>
+<body>
+<div>
+    <form action=/companies method=GET>
+        <div>
+            <div class="form-retreat2">
+                <h1 th:text="'Company with ID: ' + ${companyID} + ' update'"></h1>
+                <!--#if expr=(!str = $trueUpdate) -->
+                <h1 th:text="'  ' + ${trueUpdate}" class="inscriptionTrue"></h1>
+                <!--endif-->
+                <div>
+                    <h1 th:text="'New data about the company: ' + ${companyName}"></h1>
+                    <h3 th:text="'Description company:  ' + ${companyDescription}"></h3>
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+            <input class="submit1" type=submit value="Companies menu">
+        </div>
+    </form>
+</div>
+</body>
+</html>

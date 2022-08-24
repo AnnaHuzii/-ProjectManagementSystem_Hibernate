@@ -1,14 +1,12 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org"
       lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Main</title>
-
+    <title>error Project incorrectly</title>
     <style>
     .form-center{
 	padding: 50px;
@@ -21,7 +19,6 @@
     .form-retreat {
      margin-bottom: 2rem;
     }
-
 .submit1 {
     background-color: #008CBA;
     padding: 14px 40px;
@@ -32,21 +29,12 @@
     </style>
 </head>
 <body>
-<div class="form-center" >
-    <form name="radio" action="/" method="POST">
-        <p>Please select a table you want to operate with:</p>
-        <input type="radio" id="Developers" name="table" value="developers" checked>
-        <label for="Developers">Developers</label><br>
-        <input type="radio" id="Project" name="table" value="project">
-        <label for="Project">Project</label><br>
-        <input type="radio" id="It Companies" name="table" value="companies">
-        <label for="It Companies">It Companies</label><br>
-        <input type="radio" id="Customers" name="table" value="customers">
-        <label for="Customers">Customers</label><br><br>
+<div class="form-center">
+    <form name="error_developer_incorrectly" action=/project method="GET">
         <div style="text-align:center">
-            <input class="submit1" type="submit" value="Confirm your choose">
+            <h1 >You have entered incorrect data, please try again</h1>
+            <input class="submit1" type="submit" value="Projects menu">
         </div>
-
     </form>
 </div>
 </body>
