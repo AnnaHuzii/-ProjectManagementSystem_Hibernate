@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface DeveloperService {
     Developer createDeveloper(Developer developer);
-    List <Developer> getDeveloperByNameAndDate(String fullName, Date birthDate);
+    List<Developer> getDeveloperByNameAndDate(String fullName, Date birthDate);
     List <Developer> getListMiddleDevelopers();
     Developer getDeveloperById(long id);
     List<Developer> getListDeveloper() ;

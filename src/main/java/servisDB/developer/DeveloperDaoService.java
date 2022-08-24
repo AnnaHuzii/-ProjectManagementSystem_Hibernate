@@ -4,15 +4,9 @@ import connection.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-import servisDB.project.Project;
-import servisDB.project.ProjectDaoService;
-import servisDB.project.ProjectService;
-import servisDB.skill.Industry;
-import servisDB.skill.Level;
-import servisDB.skill.Skills;
 
 import java.sql.Date;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeveloperDaoService implements DeveloperService {
@@ -54,17 +48,21 @@ public class DeveloperDaoService implements DeveloperService {
 
     @Override
     public List<Developer> getDeveloperByNameAndDate(String fullName, Date birthDate) {
-        Session session = openSession();
-        Transaction transaction = session.beginTransaction();
-        List <Developer> developer = session.createQuery("SELECT * FROM developers " +
-                        "WHERE full_name = :paramFullName, birth_date = :paramBirthDate",
-                Developer.class).
-                setParameter("paramFullName", fullName).
-                setParameter("paramBirthDate",birthDate).
-                list();
-        transaction.commit();
-        session.close();
-        return developer;
+        try (Session session = openSession()) {
+
+            Transaction transaction = session.beginTransaction();
+            NativeQuery<Developer> developerQuery = session.createNativeQuery(
+                    "SELECT * FROM developers " +
+                            " WHERE full_name = :paramFullName AND " +
+                            " birth_date = :paramBirthDate",
+                    Developer.class);
+            developerQuery.setParameter("paramFullName", fullName);
+            developerQuery.setParameter("paramBirthDate", birthDate);
+            List<Developer> developer = developerQuery.list();
+            System.out.println("developerLong.toString() = " + developer.get(0));
+            transaction.commit();
+            return null;
+        }
     }
 
     @Override
@@ -111,6 +109,7 @@ public class DeveloperDaoService implements DeveloperService {
     public List<Developer> getDevelopersBySkillLevel(String skillLevel) {
         return null;
     }
+
     private Session openSession() {
         return HibernateUtil.getInstance().getSessionFactory().openSession();
     }

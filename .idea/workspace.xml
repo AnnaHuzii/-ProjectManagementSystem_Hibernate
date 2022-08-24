@@ -5,99 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="531b7c6a-3bce-4114-a4b4-7344a49de3de" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/connection/DbInitService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/connection/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/connection/PropertiesReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/company/Company.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/customer/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/customer/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/Developer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/project/Project.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/project/ProjectService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/skill/Skills.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/skill/SkillsDaoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/servisDB/skill/SkillsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/companies/AllCompanyCompanies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/companies/CreateCompaniesCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/companies/DeleteCompanyCompanies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/companies/UpdateCompanyCompanies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/customers/CreateCustomersCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/customers/GetInformationAboutAllCustomers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/CreateDeveloperCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/DeleteDeveloperCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/GetInformationAboutDeveloperByNameCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/project/AllInfoAboutProjectCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/command/project/ListAllProjectCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/settings/CommandService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/companies_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/companies_all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/companies_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/companies_update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/customers_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/customers_all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/developer_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/developer_all.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/developer_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/developer_update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/developers_list_middle.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/developers_quantity_java.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/error_companies_incorrectly.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/error_customer_incorrectly.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/error_developer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/error_developer_incorrectly.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/error_projects_incorrectly.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/error_update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/project_all_info_about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/templates/projects_list_of_all.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/companies/CompaniesMenuCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/companies/CompaniesMenuCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/customers/CustomersMenuCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/customers/CustomersMenuCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/developers/AddDeveloperCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/developers/DeleteDeveloperCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/developers/DevelopersMenuCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/DevelopersMenuCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/developers/GetInformationAboutAllDevelopersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/GetInformationAboutAllDevelopersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/developers/GetInformationAboutDeveloperByNameCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/developers/ListMiddleDevelopersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/ListMiddleDevelopersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/developers/QuantityJavaDevelopersCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/QuantityJavaDevelopersCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/developers/UpdateDeveloperCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/UpdateDeveloperCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/main/ChooseTableCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/main/ChooseTableCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/main/MainMenuCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/main/MainMenuCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/project/ProjectMenuCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/project/ProjectMenuCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/settings/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/settings/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/command/settings/CommandService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connection/Prefs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/connection/Storage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/company/Company.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/company/CompanyDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/company/CompanyDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/customer/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/customer/CustomerDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/customer/CustomerDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/developer/Developer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/developer/DeveloperDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/developer/Sex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/Sex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/project/Project.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/project/ProjectDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/project/ProjectDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/skill/Industry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/skill/Industry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/skill/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/skill/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/db/skill/Skill.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/thymeleaf/ThymeleafController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/thymeleaf/ThymeleafController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.migration/V1_initDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1__create_tables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.migration/V2_populateDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V2__insert_data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/addDeveloper.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/companies.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/companies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/customers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/customers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/developers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/developers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/information_developer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/developer_information.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/templates/project.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/templates/project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,12 +159,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java</url>
-          <line>39</line>
+          <line>33</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -263,9 +168,14 @@
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/command/developers/GetInformationAboutDeveloperByNameCommand.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="90" />
+          <url>file://$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="93" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
