@@ -16,34 +16,24 @@ import java.util.Set;
 @Entity
 public class Project {
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(name = "start_date")
     private Date startDate;
 
-    @Column
     private String name;
 
-    @Column
     private String description;
 
-    @Column
     private String cost;
 
-    @Column(name = "company_id")
-    private Company companyId;
-
-    @Column(name = "customer_id")
-    private Customer customerId;
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @ManyToOne
     @JoinColumn(name = "company_id")
-    private Set <Company> company;
+    Company companies;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinTable(name = "customer_id")
-    private Set <Customer> customers;
-
+    @ManyToMany(mappedBy = "project", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "customer_id")
+    Set <Customer> customers;
+    public Project() {}
 }

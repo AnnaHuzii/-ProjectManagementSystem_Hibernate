@@ -37,14 +37,14 @@ public class Developer {
             joinColumns = @JoinColumn(name = "developer_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id")
     )
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developer", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    private Set<Project> projects;
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developers", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    Set<Project> project;
 
     @JoinTable(name = "developer_skill",
             joinColumns = @JoinColumn(name = "developer_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id")
     )
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developer", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    private Set<Skills> skills;
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developers", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    Set<Skills> skills;
 
 }

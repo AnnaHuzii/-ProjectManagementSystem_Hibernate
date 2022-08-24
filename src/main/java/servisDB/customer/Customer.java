@@ -24,6 +24,6 @@ public class Customer {
     private String product;
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "customers")
-    private Set<Project> projects;
+    private Set<Project> project;
 
 }

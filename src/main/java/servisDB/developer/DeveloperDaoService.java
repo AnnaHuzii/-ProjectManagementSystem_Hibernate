@@ -31,7 +31,7 @@ public class DeveloperDaoService implements DeveloperService {
     @Override
     public List<Developer> getListDeveloper() {
         Session session = openSession();
-        List<Developer> developers = session.createQuery("FROM Developer", Developer.class).list();
+        List<Developer> developers = session.createQuery("from Developer", Developer.class).list();
         session.close();
         return developers;
     }

@@ -43,10 +43,9 @@ public class GetInformationAboutDeveloperByNameCommand implements Command {
                     context.setVariable("Skype", info.getSkype());
                     context.setVariable("Salary", info.getSalary());
                     context.setVariable("Skill", info.getSkills());
-                    context.setVariable("Projects", info.getProjects());
+                    context.setVariable("Projects", info.getProject());
                 }
 
-                resp.setContentType("text/html, charset=utf-8");
                 engine.process("developer_information", context, resp.getWriter());
                 resp.getWriter().close();
             } else {

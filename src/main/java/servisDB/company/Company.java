@@ -24,4 +24,6 @@ public class Company {
     @Column(name = "description")
     private String companyDescription;
 
+    @OneToMany(mappedBy = "companies")
+    Set<Project> project;
 }

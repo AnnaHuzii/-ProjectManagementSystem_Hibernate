@@ -20,7 +20,6 @@ public class ProjectDaoService implements ProjectService {
         return INSTANCE;
     }
 
-
     public Project getProjectById(long id) {
         Session session = openSession();
         return session.get(Project.class, id);
@@ -30,20 +29,14 @@ public class ProjectDaoService implements ProjectService {
     public Project getProjectByName(String name) {
         Session session = openSession();
 
-        NativeQuery<Project> query = session.createNativeQuery(
-                "SELECT * FROM project WHERE name = :paramName",
-                Project.class
+        NativeQuery <Long>query = session.createNativeQuery(
+                "SELECT project.id FROM project WHERE name = :paramName",
+                Long.class
         );
         query.setParameter("paramName", name);
-        List<Project> projectList = query.list();
-        System.out.println("projectList = " + projectList);
-        Project project = new Project();
-        if (projectList.size()<=1) {
-            for (Project p: projectList) {
-                project.setId(p.getId());
-                project.setCost(p.getCost());
-            }
-        }
+        List <Long> projectList = query.list();
+        Project project = getProjectById(projectList.get(0));
+
         session.close();
         return project;
     }

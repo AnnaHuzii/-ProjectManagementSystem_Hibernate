@@ -97,17 +97,16 @@ public class CreateDeveloperCommand implements Command {
             developer.setSkype(skype);
             developer.setSex(sexName);
             developer.setSalary(salary);
-            developer.setProjects(projectSet);
+            developer.setProject(projectSet);
             developer.setSkills(skillsSet);
             Developer addDeveloper = developerConnections.createDeveloper(developer);
 
             context.setVariable("fullName", addDeveloper.getFullName());
             context.setVariable("birthDate", addDeveloper.getBirthDate());
-            context.setVariable("project", addDeveloper.getProjects());
+            context.setVariable("project", addDeveloper.getProject());
             context.setVariable("salary", addDeveloper.getSalary());
             context.setVariable("skills", addDeveloper.getSkills());
 
-            resp.setContentType("text/html, charset=utf-8");
             engine.process("developer_add", context, resp.getWriter());
         } else {
             engine.process("error_developer_incorrectly", context, resp.getWriter());
