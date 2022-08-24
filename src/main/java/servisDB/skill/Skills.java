@@ -28,6 +28,6 @@ public class Skills {
     private Level skillLevel;
 
     @ManyToMany(targetEntity = Developer.class, mappedBy = "skills")
-    private Developer developers;
+    private Set<Developer> developers;
 
 }

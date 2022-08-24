@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="531b7c6a-3bce-4114-a4b4-7344a49de3de" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperDaoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/DeveloperService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servisDB/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servisDB/developer/Developer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/developer/Developer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servisDB/project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/project/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/servisDB/skill/Skills.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/servisDB/skill/Skills.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/command/developers/CreateDeveloperCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/command/developers/CreateDeveloperCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,16 +139,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/web/command/developers/CreateDeveloperCommand.java</url>
           <line>80</line>
           <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/web/command/customers/GetInformationAboutAllCustomers.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/servisDB/company/CompanyDaoService.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/servisDB/company/CompanyDaoService.java</url>

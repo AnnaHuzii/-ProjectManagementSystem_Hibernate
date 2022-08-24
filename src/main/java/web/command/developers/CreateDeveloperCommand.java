@@ -35,7 +35,7 @@ public class CreateDeveloperCommand implements Command {
         Date birthDate = null;
         try {
             birthDate = Date.valueOf(LocalDate.parse(req.getParameter("developerBirthDate")));
-        }catch (Exception e){
+        } catch (Exception e) {
 
             engine.process("error_developer_incorrectly", context, resp.getWriter());
             resp.getWriter().close();
@@ -82,9 +82,13 @@ public class CreateDeveloperCommand implements Command {
             Skills skills = new Skills();
             long skillsId = skillsDaoService.getSkillsById(industryName, levelName);
             skills.setSkillId(skillsId);
+            Set<Skills> skillsSet = new HashSet<>();
+            skillsSet.add(skills);
 
             ProjectService projectDaoService = ProjectDaoService.getInstance();
             Project projectId = projectDaoService.getProjectById(reqProject);
+            Set<Project> projectSet = new HashSet<>();
+            projectSet.add(projectId);
 
             Developer developer = new Developer();
             developer.setFullName(fullName);
@@ -93,8 +97,8 @@ public class CreateDeveloperCommand implements Command {
             developer.setSkype(skype);
             developer.setSex(sexName);
             developer.setSalary(salary);
-            developer.setProjects(projectId);
-            developer.setSkills(skills);
+            developer.setProjects(projectSet);
+            developer.setSkills(skillsSet);
             Developer addDeveloper = developerConnections.createDeveloper(developer);
 
             context.setVariable("fullName", addDeveloper.getFullName());
@@ -107,7 +111,8 @@ public class CreateDeveloperCommand implements Command {
             engine.process("developer_add", context, resp.getWriter());
         } else {
             engine.process("error_developer_incorrectly", context, resp.getWriter());
-        } resp.getWriter().close();
+        }
+        resp.getWriter().close();
     }
 }
 

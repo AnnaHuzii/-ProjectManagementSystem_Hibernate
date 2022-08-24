@@ -40,10 +40,10 @@ public class Project {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "company_id")
-    private Company company;
+    private Set <Company> company;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JoinTable(name = "customer_id")
+    private Set <Customer> customers;
 
 }

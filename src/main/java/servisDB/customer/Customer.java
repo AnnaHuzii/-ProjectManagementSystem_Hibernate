@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 import servisDB.project.Project;
 
-import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -26,6 +24,6 @@ public class Customer {
     private String product;
 
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "customers")
-    private Project project;
+    private Set<Project> projects;
 
 }

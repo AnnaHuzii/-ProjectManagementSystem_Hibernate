@@ -38,13 +38,13 @@ public class Developer {
             inverseJoinColumns = @JoinColumn(name = "project_id")
     )
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developer", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    private Project projects;
+    private Set<Project> projects;
 
     @JoinTable(name = "developer_skill",
             joinColumns = @JoinColumn(name = "developer_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id")
     )
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developer", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    private Skills skills;
+    private Set<Skills> skills;
 
 }
