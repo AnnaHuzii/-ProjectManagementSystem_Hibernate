@@ -18,19 +18,33 @@
     .form-control-string {
      margin-bottom: 1rem;
     }
+    .inscriptionTrue {
+        color: green;
+        font-size: 25pt;
+    }
+    .inscriptionFalse {
+        color: red;
+        font-size: 25pt;
+    }
     </style>
 </head>
 <body>
 <div>
     <div class="form-control-string">
-        <h1 th:text="${deleteDeveloper}"></h1>
-        <h3 th:text="${fullName} + '- Birth date: ' + ${birthDate}"></h3>
-    </div>
-    <div>
-        <form action=/developers method=GET>
-            <input class="submit1" type=submit value='Developer menu'>
-        </form>
-    </div>
+        <h1 th:text="'Developer removed from: ' + ${IdDeveloper}"></h1>
+
+        <!--#if expr=(!str = $trueDelete) -->
+        <b1 th:text="${trueDelete}" class="inscriptionTrue"></b1>
+        <!--endif-->
+        <!--#if expr=(!str = $falseDelete) -->
+        <b1 th:text="${falseDelete}" class="inscriptionFalse"></b1>
+        <!--
+</div>
+<div>
+    <form action=/developers method=GET>
+        <input class="submit1" type=submit value='Developer menu'>
+    </form>
+</div>
 </div>
 </body>
 </html>

@@ -3,15 +3,21 @@ package servisDB.developer;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import servisDB.company.Company;
 import servisDB.project.Project;
-import servisDB.skill.Skills;
+import servisDB.skill.Skill;
+
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Setter
 @Getter
-@Table(name = "developers")
+@Table(name = "developer")
 public class Developer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,18 +39,21 @@ public class Developer {
 
     private float salary;
 
-    @JoinTable(name = "projects_developers",
-            joinColumns = @JoinColumn(name = "developer_id"),
-            inverseJoinColumns = @JoinColumn(name = "project_id")
-    )
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developers", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    Set<Project> project;
+    @ToString.Exclude
+    @ManyToOne
+    @JoinColumn(name = "company_id", referencedColumnName = "company_id")
+    private Company company;
 
     @JoinTable(name = "developer_skill",
             joinColumns = @JoinColumn(name = "developer_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id")
-    )
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "developers", cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    Set<Skills> skills;
+            inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = Skill.class)
+    private Set<Skill> skills = new HashSet<>();
 
+
+    @JoinTable(name = "project_developer",
+            joinColumns = @JoinColumn(name = "developer_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id"))
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = Project.class)
+    private Set<Project> projects = new HashSet<>();
 }

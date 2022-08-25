@@ -3,18 +3,17 @@ package servisDB.skill;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import servisDB.customer.Customer;
 import servisDB.developer.Developer;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Setter
 @Getter
-@Table(name = "skills")
-public class Skills {
+@Table(name = "skill")
+public class Skill {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +26,8 @@ public class Skills {
     @Enumerated(EnumType.STRING)
     private Level skillLevel;
 
-    @ManyToMany(targetEntity = Developer.class, mappedBy = "skills")
-    Set<Developer> developers;
+    @ManyToMany(mappedBy = "skills")
+    private Set<Developer> developers = new HashSet<>();
+
 
 }

@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -19,14 +21,20 @@ public class AllInfoAboutProjectCommand implements Command {
     ProjectService projectDaoService = ProjectDaoService.getInstance();
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
-
+        resp.setContentType("text/html; charset=utf-8");
         String projectName = req.getParameter("projectName");
         if (!projectName.equals("")) {
             // Отримати дані по назві проекту
-            Project getInfoByName = projectDaoService.getProjectByName(projectName);
+            String getInfoByName = projectDaoService.getProjectByName(projectName);
+            String[] words = getInfoByName.split("<br>");
+            ArrayList listInfoByName = new ArrayList();
+            Collections.addAll(listInfoByName, words);
 
             // Отримати список всіх розробників конкретного проекту KUP Agro
-            List <String> listOfProjectDevelopers = projectDaoService.listOfProjectDevelopers(projectName);
+           String listOfProjectDevelopers = projectDaoService.listOfProjectDevelopers(projectName);
+            String[] wordsName = listOfProjectDevelopers.split("<br>");
+            ArrayList listDeveloper = new ArrayList();
+            Collections.addAll(listDeveloper, wordsName);
 
             // Суму зарплат всіх розробників по проекту
             float projectCost = projectDaoService.getBudgetByProjectName(projectName);
@@ -37,7 +45,7 @@ public class AllInfoAboutProjectCommand implements Command {
                             "listDeveloper", listOfProjectDevelopers, "projectCost", projectCost)
             );
 
-            resp.setContentType("text/html; charset=utf-8");
+
             engine.process("project_all_info_about", simpleContext, resp.getWriter());
             resp.getWriter().close();
         } else {

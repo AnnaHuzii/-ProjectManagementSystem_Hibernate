@@ -4,13 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import servisDB.project.Project;
-
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Setter
 @Getter
-@Table(name = "customers")
+@Table(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Customer {
 
     private String product;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "customers")
-    private Set<Project> project;
+    @ManyToMany(mappedBy = "customers")
+    private Set<Project> projects = new HashSet<>();
 
 }

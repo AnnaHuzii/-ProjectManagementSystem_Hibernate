@@ -4,10 +4,6 @@ import lombok.Getter;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import servisDB.company.Company;
-import servisDB.customer.Customer;
-import servisDB.developer.Developer;
-import servisDB.project.Project;
-import servisDB.skill.Skills;
 
 import java.io.IOException;
 import java.io.InputStream;

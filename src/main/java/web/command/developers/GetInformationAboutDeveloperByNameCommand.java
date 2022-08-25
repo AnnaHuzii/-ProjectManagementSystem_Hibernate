@@ -20,7 +20,7 @@ public class GetInformationAboutDeveloperByNameCommand implements Command {
     DeveloperService developerConnections = DeveloperDaoService.getInstance();
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
-
+        resp.setContentType("text/html; charset=utf-8");
         Context context = new Context();
         String fullName = req.getParameter("developerFullName");
         Date birthDate = null;
@@ -43,7 +43,7 @@ public class GetInformationAboutDeveloperByNameCommand implements Command {
                     context.setVariable("Skype", info.getSkype());
                     context.setVariable("Salary", info.getSalary());
                     context.setVariable("Skill", info.getSkills());
-                    context.setVariable("Projects", info.getProject());
+                    context.setVariable("Projects", info.getProjects());
                 }
 
                 engine.process("developer_information", context, resp.getWriter());

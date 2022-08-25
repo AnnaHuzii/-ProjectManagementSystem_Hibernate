@@ -32,7 +32,7 @@ public class CommandService {
         commands.put("GET /developers", new DevelopersMenuCommand());
         commands.put("POST /developers/all_developers", new GetInformationAboutAllDevelopersCommand());
         commands.put("POST /developers/developer_info", new GetInformationAboutDeveloperByNameCommand());
-        commands.put("POST /developers/quantity_java_developers", new QuantityJavaDevelopersCommand());
+        commands.put("POST /developers/quantity_java_developers", new NumberOfDevelopersBySkillLevel());
         commands.put("POST /developers/middle_developers", new ListMiddleDevelopersCommand());
         commands.put("POST /developers/add", new CreateDeveloperCommand());
         commands.put("POST /developers/update", new UpdateDeveloperCommand());

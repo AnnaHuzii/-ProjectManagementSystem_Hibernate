@@ -14,7 +14,7 @@ public class CompaniesMenuCommand implements Command {
     CompanyService companyConnections = CompanyDaoService.getInstance();
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException {
-        resp.setContentType("text/html, charset=utf-8");
+        resp.setContentType("text/html; charset=utf-8");
         Context context = new Context();
         engine.process("companies", context, resp.getWriter());
         resp.getWriter().close();

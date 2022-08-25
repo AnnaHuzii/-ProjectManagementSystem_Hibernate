@@ -3,18 +3,10 @@ package servisDB.customer;
 import connection.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import servisDB.company.Company;
-import servisDB.company.CompanyDaoService;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 
-public class CustomerDaoService implements CustomerService{
+
+public class CustomerDaoService implements CustomerService {
 
     private static final CustomerDaoService INSTANCE;
 
@@ -37,28 +29,46 @@ public class CustomerDaoService implements CustomerService{
     }
 
     @Override
-    public Customer getCustomerById(long id) {
-        Session session = openSession();
-        return session.get(Customer.class, id);
+    public Customer getById(long id) {
+        try(Session session = openSession()) {
+            return session.get(Customer.class, id);
+        }
     }
 
     @Override
     public List<Customer> getCustomerAll() {
-        try (Session session = openSession()) {
+        try(Session session = openSession()) {
             return session.createQuery("FROM Customer", Customer.class).list();
         }
     }
 
     @Override
-    public boolean update(Customer customer) {
-        return false;
+    public String update(Customer customer) {
+        try {
+            Session session = openSession();
+            Transaction transaction = session.beginTransaction();
+            session.merge(customer);
+            transaction.commit();
+            session.close();
+            return "true";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
 
     @Override
-    public boolean deleteById(long id) {
-        return false;
+    public String deleteById(long id) {
+        try {
+            Session session = openSession();
+            Transaction transaction = session.beginTransaction();
+            session.remove(getById(id));
+            transaction.commit();
+            session.close();
+            return "true";
+        } catch (Exception e) {
+            return e.getMessage();
+        }
     }
-
     private Session openSession() {
         return HibernateUtil.getInstance().getSessionFactory().openSession();
     }

@@ -9,8 +9,7 @@ public interface DeveloperService {
     List <Developer> getListMiddleDevelopers();
     Developer getDeveloperById(long id);
     List<Developer> getListDeveloper() ;
-    boolean updateDeveloper(Developer developer, long[] skillIds);
+    boolean updateDeveloper(Developer developer);
     boolean deleteDeveloperById(long id);
-    List<Developer> getDevelopersByDepartment(String department);
-    List<Developer> getDevelopersBySkillLevel(String skillLevel);
+    int getDevelopersSkillLevel(String skillLevel);
 }

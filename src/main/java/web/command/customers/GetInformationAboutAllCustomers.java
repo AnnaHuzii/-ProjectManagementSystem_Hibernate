@@ -22,7 +22,6 @@ public class GetInformationAboutAllCustomers implements Command {
 
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
-
         resp.setContentType("text/html; charset=utf-8");
 
         List<Customer> getAllNames = customerDaoService.getCustomerAll();

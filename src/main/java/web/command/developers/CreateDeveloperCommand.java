@@ -23,11 +23,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CreateDeveloperCommand implements Command {
-    DeveloperService developerConnections = DeveloperDaoService.getInstance();
+    DeveloperService developerDaoService = DeveloperDaoService.getInstance();
 
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
-
+        resp.setContentType("text/html; charset=utf-8");
         Context context = new Context();
 
         String fullName = req.getParameter("developerFullName");
@@ -79,10 +79,10 @@ public class CreateDeveloperCommand implements Command {
             }
 
             SkillsService skillsDaoService = SkillsDaoService.getInstance();
-            Skills skills = new Skills();
+            Skill skills = new Skill();
             long skillsId = skillsDaoService.getSkillsById(industryName, levelName);
             skills.setSkillId(skillsId);
-            Set<Skills> skillsSet = new HashSet<>();
+            Set<Skill> skillsSet = new HashSet<>();
             skillsSet.add(skills);
 
             ProjectService projectDaoService = ProjectDaoService.getInstance();
@@ -97,13 +97,13 @@ public class CreateDeveloperCommand implements Command {
             developer.setSkype(skype);
             developer.setSex(sexName);
             developer.setSalary(salary);
-            developer.setProject(projectSet);
+            developer.setProjects(projectSet);
             developer.setSkills(skillsSet);
-            Developer addDeveloper = developerConnections.createDeveloper(developer);
+            Developer addDeveloper = developerDaoService.createDeveloper(developer);
 
             context.setVariable("fullName", addDeveloper.getFullName());
             context.setVariable("birthDate", addDeveloper.getBirthDate());
-            context.setVariable("project", addDeveloper.getProject());
+            context.setVariable("project", addDeveloper.getProjects());
             context.setVariable("salary", addDeveloper.getSalary());
             context.setVariable("skills", addDeveloper.getSkills());
 

@@ -17,6 +17,7 @@ public class DeleteCompanyCompanies implements Command {
 
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
+        resp.setContentType("text/html; charset=utf-8");
         Context context = new Context();
         String id = req.getParameter("companyID");
         boolean result = companyConnections.deleteByIdCompany(Long.parseLong(id));
@@ -29,7 +30,7 @@ public class DeleteCompanyCompanies implements Command {
         }
 
 
-        resp.setContentType("text/html; charset=utf-8");
+
         engine.process("companies_delete", context, resp.getWriter());
         resp.getWriter().close();
     }

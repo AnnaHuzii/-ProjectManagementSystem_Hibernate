@@ -22,7 +22,7 @@ public class GetInformationAboutAllDevelopersCommand implements Command {
     DeveloperService developerConnections = DeveloperDaoService.getInstance();
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException {
-
+        resp.setContentType("text/html; charset=utf-8");
         List<Developer> allFullName = developerConnections.getListDeveloper();
 
         List<Developer> result = new ArrayList<>();
@@ -37,7 +37,6 @@ public class GetInformationAboutAllDevelopersCommand implements Command {
                 req.getLocale(),
                 Map.of("list", result)
         );
-        resp.setContentType("text/html; charset=utf-8");
         engine.process("developer_all", simpleContext, resp.getWriter());
         resp.getWriter().close();
     }

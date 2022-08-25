@@ -1,4 +1,4 @@
-INSERT INTO skills (industry, skill_level) VALUES
+INSERT INTO skill (industry, skill_level) VALUES
 ('Java',  'Junior'),
 ('Java',  'Middle'),
 ('Java',  'Senior'),
@@ -12,18 +12,18 @@ INSERT INTO skills (industry, skill_level) VALUES
 ('JS',  'Middle'),
 ('JS',  'Senior');
 
-INSERT INTO companies (name, description) VALUES
+INSERT INTO company (name, description) VALUES
 ('RASK In-AGRO', 'The company implements and maintains IT management and accounting systems for industrial and agricultural enterprises'),
 ('Quartz', 'Software for agriculture and utilities');
 
-INSERT INTO customers (name, edrpou, product) VALUES
+INSERT INTO customer (name, edrpou, product) VALUES
 ('Oryla United Elevator, LLC', '30921733', 'Accounting of the elevator, mill and feed mill'),
 ('Oryla United Elevator, LLC', '30921733','BAS AGRO. Elevator accounting'),
 ('Korsun AF, STOV', '32012939', 'BAS AGRO. Accounting (Agriculture)'),
 ('Agrosoyuz-RP, LLC, with. Mliiv', '35013940', 'Accounting of an agricultural enterprise'),
 ('BI Group - Engineering', '160540301', 'ERP');
 
-INSERT INTO developers (full_name, birth_date, sex, email, skype, salary) VALUES
+INSERT INTO developer (full_name, birth_date, sex, email, skype, salary) VALUES
 ('Neroda Dmitry', '1982-05-09', 'male', 'Neroda.D@inagro.com.ua', 'd.ramoss', 5000),
 ('Kravets Andrey', '1975-01-14', 'male', 'Kravets.A@inagro.com.ua', 'acrom_sc', 1500),
 ('Spivak Galina', '1972-07-12', 'female', 'Spivak.G@inagro.com.ua', 'gala_spivak', 2500),
@@ -38,7 +38,7 @@ INSERT INTO project (start_date, name, description, company_id, customer_id) VAL
 ('2010-04-20','Quarter', 'Program for utility companies', 2, 4),
 ('2014-05-10','Agro-business management for Ukraine', 'A program for managing an agricultural enterprise', 2, 4);
 
-INSERT INTO developers_skills (developer_id, skill_id) VALUES
+INSERT INTO developer_skill (developer_id, skill_id) VALUES
 (1,12),
 (1,2),
 (1,8),
@@ -51,7 +51,7 @@ INSERT INTO developers_skills (developer_id, skill_id) VALUES
 (5,11),
 (6,11);
 
-INSERT INTO projects_developers (project_id, developer_id) VALUES
+INSERT INTO project_developer (project_id, developer_id) VALUES
 (1,6),
 (1,2),
 (1,4),
@@ -66,10 +66,10 @@ INSERT INTO projects_developers (project_id, developer_id) VALUES
 UPDATE project
 SET project.cost = (
     SELECT SUM(salary)
-    FROM developers
-    WHERE developers.id IN (
+    FROM developer
+    WHERE developer.id IN (
         SELECT PS.developer_id
-        FROM projects_developers AS PS
+        FROM project_developer AS PS
         WHERE PS.project_id=project.id
     )
 );

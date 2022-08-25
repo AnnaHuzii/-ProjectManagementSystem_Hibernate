@@ -3,17 +3,21 @@ package servisDB.project;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import servisDB.company.Company;
 import servisDB.customer.Customer;
-import servisDB.skill.Skills;
+import servisDB.developer.Developer;
+import servisDB.skill.Skill;
 
 import java.sql.Date;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
-
-@Table(name = "project")
+@Entity
 @Getter
 @Setter
-@Entity
+@Table(name = "project")
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,12 +32,24 @@ public class Project {
 
     private String cost;
 
-    @ManyToOne
-    @JoinColumn(name = "company_id")
-    Company companies;
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinTable (name = "customer_id")
+    private Set <Customer> customers;
 
-    @ManyToMany(mappedBy = "project", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "customer_id")
-    Set <Customer> customers;
-    public Project() {}
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST}, mappedBy = "projects")
+    private Set<Developer> developers = new HashSet<>();
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(
+            name = "customer_id",
+            referencedColumnName = "id"
+    )
+    @Fetch(FetchMode.JOIN)
+    private Customer customer;
+
+
+    public Project() {
+    }
+
 }

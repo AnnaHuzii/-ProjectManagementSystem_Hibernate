@@ -18,6 +18,7 @@ public class UpdateCompanyCompanies implements Command {
 
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
+        resp.setContentType("text/html; charset=utf-8");
         Context context = new Context();
 
         long companyID = Long.parseLong(req.getParameter("companyID"));

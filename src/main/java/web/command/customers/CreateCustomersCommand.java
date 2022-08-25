@@ -17,7 +17,8 @@ public class CreateCustomersCommand implements Command {
     CustomerService companyDaoService = CustomerDaoService.getInstance();
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
-        Customer customer = new Customer();
+        resp.setContentType("text/html; charset=utf-8");
+
         Context context = new Context();
         String customerName = req.getParameter("customerName");
         String customerProduct = req.getParameter("customerProduct");
@@ -28,6 +29,7 @@ public class CreateCustomersCommand implements Command {
             engine.process("error_customer_incorrectly", context, resp.getWriter());
             resp.getWriter().close();
         }
+        Customer customer = new Customer();
         customer.setName(customerName);
         customer.setEdrpou(edrpou);
         customer.setProduct(customerProduct);

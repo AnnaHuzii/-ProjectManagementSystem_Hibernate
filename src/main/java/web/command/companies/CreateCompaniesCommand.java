@@ -17,6 +17,7 @@ public class CreateCompaniesCommand implements Command {
     CompanyService companyConnections = CompanyDaoService.getInstance();
     @Override
     public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
+        resp.setContentType("text/html; charset=utf-8");
         Context context = new Context();
 
         String companyName = req.getParameter("companyName");

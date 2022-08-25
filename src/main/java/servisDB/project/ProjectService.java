@@ -8,13 +8,13 @@ public interface ProjectService {
 
     Project getProjectById(long id);
 
-    Project getProjectByName (String name);
+    String getProjectByName (String name);
 
     List<Project> getProjectList();
 
     float getBudgetByProjectName(String name);
 
-   List <String> listOfProjectDevelopers(String name);
+   String listOfProjectDevelopers(String name);
 
-   List <Project> getProjectsListInSpecialFormat();
+    String getProjectsListInSpecialFormat();
 }

@@ -4,9 +4,7 @@ import connection.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
-
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DeveloperDaoService implements DeveloperService {
@@ -31,9 +29,7 @@ public class DeveloperDaoService implements DeveloperService {
     @Override
     public List<Developer> getListDeveloper() {
         Session session = openSession();
-        List<Developer> developers = session.createQuery("from Developer", Developer.class).list();
-        session.close();
-        return developers;
+        return session.createQuery("from Developer", Developer.class).list();
     }
 
     @Override
@@ -42,7 +38,6 @@ public class DeveloperDaoService implements DeveloperService {
         Transaction transaction = session.beginTransaction();
         session.persist(developer);
         transaction.commit();
-        session.close();
         return developer;
     }
 
@@ -52,27 +47,36 @@ public class DeveloperDaoService implements DeveloperService {
 
             Transaction transaction = session.beginTransaction();
             NativeQuery<Developer> developerQuery = session.createNativeQuery(
-                    "SELECT * FROM developers " +
-                            " WHERE full_name = :paramFullName AND " +
+                    "SELECT sex, email, skype, salary FROM developer" +
+                            " WHERE full_name = :paramFullName AND" +
                             " birth_date = :paramBirthDate",
                     Developer.class);
             developerQuery.setParameter("paramFullName", fullName);
             developerQuery.setParameter("paramBirthDate", birthDate);
-            List<Developer> developer = developerQuery.list();
-            System.out.println("developerLong.toString() = " + developer.get(0));
             transaction.commit();
-            return null;
+            return developerQuery.list();
         }
     }
 
     @Override
     public List<Developer> getListMiddleDevelopers() {
+        try (Session session = openSession()) {
 
-        return null;
+            Transaction transaction = session.beginTransaction();
+            NativeQuery<Developer> developerQuery = session.createNativeQuery(
+        "SELECT full_name, industry " +
+                "FROM developer " +
+                "JOIN developer_skill ON developer.id = developer_skill.developer_id " +
+                "JOIN skill ON developer_skill.skill_id = skill.id " +
+                "WHERE skill_level = 'middle'",
+                    Developer.class);
+            transaction.commit();
+        return developerQuery.list();
+        }
     }
 
     @Override
-    public boolean updateDeveloper(Developer developer, long[] skillIds) {
+    public boolean updateDeveloper(Developer developer) {
         try (Session session = openSession()) {
             Transaction transaction = session.beginTransaction();
             session.merge(developer);
@@ -100,14 +104,25 @@ public class DeveloperDaoService implements DeveloperService {
         }
     }
 
-    @Override
-    public List<Developer> getDevelopersByDepartment(String department) {
-        return null;
-    }
 
     @Override
-    public List<Developer> getDevelopersBySkillLevel(String skillLevel) {
-        return null;
+    public int getDevelopersSkillLevel(String skillLevel) {
+
+        try(Session session = openSession()) {
+            NativeQuery<Developer> nativeQuery = session.createNativeQuery(
+                    "SELECT T1.*" + '\n' +
+                            "FROM developer AS T1" + '\n' +
+                            "JOIN developer_skill AS T2 ON T1.id=T2.developer_id" + '\n' +
+                            "JOIN skill AS T3 ON T2.skill_id=T3.id" + '\n' +
+                            "GROUP BY T3.skill_level , T1.id" + '\n' +
+                            "HAVING T3.skill_level = :skillLevel",
+                    Developer.class
+            );
+            nativeQuery.setParameter("skillLevel", skillLevel);
+            List<Developer> developers = nativeQuery.list();
+
+            return developers.size();
+        }
     }
 
     private Session openSession() {

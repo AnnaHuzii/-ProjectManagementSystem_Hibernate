@@ -23,6 +23,7 @@ public class ListAllProjectCommand implements Command {
     ProjectService projectDaoService = ProjectDaoService.getInstance();
         @Override
         public void process(HttpServletRequest req, HttpServletResponse resp, TemplateEngine engine) throws IOException, SQLException, ParseException {
+            resp.setContentType("text/html; charset=utf-8");
             String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern(
                     "dd.MM.yyyy, HH:mm:ss"
             ));
@@ -35,16 +36,17 @@ public class ListAllProjectCommand implements Command {
 
             // Список проектів в наступному форматі:
             //Дата створення проекту - Назва проекту - Кількість розробників на цьому проекті
-            List <Project> getProjectsListInSpecialFormat = projectDaoService.getProjectsListInSpecialFormat();
+            String getProjectsListInSpecialFormat = projectDaoService.getProjectsListInSpecialFormat();
 
+            String[] wordsName = getProjectsListInSpecialFormat.split("<br>");
             ArrayList listNameDate = new ArrayList();
-            Collections.addAll(listNameDate, getProjectsListInSpecialFormat);
+            Collections.addAll(listNameDate, wordsName);
 
             Context simpleContext = new Context(
                     req.getLocale(),
                     Map.of("list", list, "listNameDate", listNameDate)
             );
-            resp.setContentType("text/html; charset=utf-8");
+
             engine.process("projects_list_of_all", simpleContext, resp.getWriter());
 
             resp.getWriter().close();

@@ -3,15 +3,11 @@ package servisDB.company;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import servisDB.project.Project;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Setter
 @Getter
-@Table(name = "companies")
+@Table(name = "company")
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +20,5 @@ public class Company {
     @Column(name = "description")
     private String companyDescription;
 
-    @OneToMany(mappedBy = "companies")
-    Set<Project> project;
+
 }

@@ -59,7 +59,6 @@ public class CompanyDaoService implements CompanyService {
             return false;
         }
     }
-
     @Override
     public boolean deleteByIdCompany(long id) {
         try {
@@ -73,7 +72,6 @@ public class CompanyDaoService implements CompanyService {
             return false;
         }
     }
-
     private Session openSession() {
         return HibernateUtil.getInstance().getSessionFactory().openSession();
     }
